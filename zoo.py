@@ -63,3 +63,5 @@ while(opakovat=="ano"):
 
     # update proměnné opakovat, aby nedošlo k zacyklení programu
     opakovat = input("Chcete opakovat program?(ano/ne)")
+
+# update proměnné opakovat, aby nedošlo k zacyklení programu# update proměnné opakovat, aby nedošlo k zacyklení programu
