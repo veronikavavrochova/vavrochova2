@@ -1,34 +1,43 @@
-# Úkol: Útulek pro zvířata
+ovoce = {
+    "nazev":"pomeranč",
+    "cena":10,
+    "fresh":True,
+    "cenyTentoMěsíc":[10,15,12],
+    "obchodCena":{"Lidl":12, "Penny":15, "Albert":10}
+}
 
-# Funkce pro vytvoření útulku (prázdného slovníku)
-def vytvor_utulek():
-    return {}
+znamky = {
+    "Anna":[1,2,4,5],
+    "Josef":[2,3,4]
+}
 
-# Funkce pro přidání zvířete do útulku
-def pridej_zvire(utulek, jmeno, druh, vek):
-    utulek[jmeno] = {
-        "druh": druh,
-        "vek": vek
-    }
+studenti = {
+    "Anna":{"vek":16, "trida":"1A","znamky":{"matika":[1,2,3], "čeština":[3,2,1]}},
+    "David":{"vek":18, "trida":"4A","znamky":{"matika":[4,5,3], "čeština":[3,3,1]}},
+    "Roman":{"vek":15, "trida":"1A","znamky":{"matika":[1,2,1], "čeština":[4,2,1]}}
+}
 
+trida = studenti["Anna"]["trida"]
+print(trida)
 
+znamky = studenti["David"]["znamky"]["matika"]
+soucetZnamek = sum(znamky)
+prumer = soucetZnamek/3
+print(prumer)
 
-def vypis_zvirata(utulek):
-    for jmeno, info in utulek.items():
-        print(f"{jmeno} je {info['druh']} a je jí/mu {info['vek']} let.")
+for student, hodnota in studenti.items():  
+    znamky = hodnota["znamky"]["matika"]
+    print(sum(znamky)/len(znamky))
 
+for student, hodnota in studenti.items():
+    trida = hodnota["trida"]
+    if trida=="1A":
+        print(f"Student {student} je z 1.A")
 
-def vypis_podle_druhu(utulek, druh):
-    for jmeno, info in utulek.items():
-        if info["druh"] == druh:
-            print(f"{jmeno} je {info['druh']} a je mu {info['vek']} let.")
-            
-utulek = vytvor_utulek()
-pridej_zvire(utulek, "Míca", "kočka", 3)
-pridej_zvire(utulek, "Rex", "pes", 5)
-
-print("Všechna zvířata v útulku:")
-vypis_zvirata(utulek)
-
-print("Jen psi v útulku:")
-vypis_podle_druhu(utulek, "pes")
+for student, hodnota in studenti.items():
+    print(hodnota)
+    hodnota["dochazka"] = "100%"
+    print(hodnota)
+for student, hodnota in studenti.items():
+    hodnota["znamky"]["matika"].append(2)
+    print(hodnota["znamky"]["matika"])
